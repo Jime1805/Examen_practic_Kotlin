@@ -1,6 +1,5 @@
 package com.example.kotlin_examen_practic
 
-import TasquesAdapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
@@ -12,7 +11,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.chip.Chip
 
-class TasquesFragment : Fragment() {
+class TasquesFragment : Fragment(R.layout.fragment_tasques) {
     private lateinit var recyclerView: RecyclerView
     private lateinit var chipGroup: ChipGroup
     private lateinit var toolbar: Toolbar
@@ -44,6 +43,7 @@ class TasquesFragment : Fragment() {
 
     private fun setupRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
     }
 
     private fun setupChips() {
@@ -95,4 +95,5 @@ class TasquesFragment : Fragment() {
         }
         adapter.setTasques(tasquesFiltrades)
     }
+
 }
